@@ -1,0 +1,150 @@
+<style>
+
+.input_info
+{
+    
+    /* display: flex; */
+    /* justify-content: center; */
+    background-color: blueviolet;
+    /* align-content: center; */
+    /* margin-left: 300px; */
+}
+
+
+
+.col
+{
+    border-color: brown;
+}
+
+
+.cs
+{
+    margin-top: 50px;
+    border-color: brown;
+    background-color: #00a19b;
+    width: 200px;
+    height: 550px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+
+.cs1
+{
+    border-color: brown;
+    background-color: none;
+    width: 200px;
+    height: 600px;
+}
+
+
+.cs2
+{
+    border-color: brown;
+    background-color: none;
+    width: 200px;
+    height: 600px;
+}
+
+h3
+{
+    padding-top: 60px;
+}
+
+h1
+{
+    padding-top: 40px;
+
+}
+
+.number
+{
+    margin-top: 20px;
+    width: 250px;
+}
+
+.btnSubmit
+{
+    margin-top: 50px;
+    width: 150px;
+    height: 50px;
+}
+
+.result
+{
+    height: 200px;
+    background-color: cornflowerblue;
+    margin-top: 250px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+h2
+{
+    padding-top: 30px;
+}
+
+body{
+    background-image: url("background.jpeg");
+    background-repeat: inherit;
+}
+
+
+</style>
+
+<div class="container">
+    <%- currentUser ? currentUser.Name : 'Khách' %>
+    <div class="row">
+        <div class="col cs1">
+
+            <!-- <h1>Tính Tổng 1 Số</h1> -->
+
+        </div>
+
+        <div class="col cs">
+
+
+            <h1>Tính Tổng 2 Số</h1>
+
+            <form method = "POST">       
+                <h3>Số Thứ Nhất</h3>
+                <input class="number" name="number1" type="number">
+                <h3>Số Thứ Hai</h3>
+                <input class="number" name="number2" type="number">
+                <br/>
+                <input class="btnSubmit" name="submit" type="submit" value = "Submit">
+            </form>
+
+            <form action="/logout" method="POST">
+
+                <input class="btnSubmit" name="submit" type="submit" value = "Logout">
+
+            </form>
+
+
+
+        </div>
+        <div class="col cs2">
+
+
+            <div class="result">
+                <h2>Kết Quả</h2>
+                <!-- <input type="text" class="number" name="result"> -->
+                <div>
+                    <h1> <%- result ? result : 0 %> </h1>
+                </div>
+            </div>
+            <!-- <h1>Tính Tổng 1 Số</h1> -->
+
+        </div>
+
+        
+    </div>
+
+
+    
+
+  
+
+</div>
