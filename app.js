@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
 const cookieSession = require('cookie-session');
+const session = require('express-session');
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
 const authMiddleware =  require('./middlewares/auth');
-const PORT = process.env.PORT || 5000;
+const db = require('./models/db');
 const loginRoter = require('./routers/login');
 const authRouter = require('./routers/auth');
 const sumRouter = require('./routers/sum');
+const RegRouter = require('./routers/register');
+
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -37,11 +41,14 @@ app.use('/auth', authRouter);
 app.use('/sum', sumRouter);
 
 
+app.use('/reg', RegRouter);
+
 app.get('/', function(req, res) {
 
     res.locals.title = 'Đăng Nhập';
     res.render('auth/login');
 });
+
 
 
 app.get('/view', function (req, res)
@@ -50,4 +57,13 @@ app.get('/view', function (req, res)
     res.send(`Bạn Đã Xem Trang Này ${req.session.views}`);
 });
 
-app.listen(PORT);
+db.sync().then(function(){
+        
+    const PORT = process.env.PORT || 5000;
+
+    console.log('server is listening');
+    
+    app.listen(PORT);
+
+}).catch(console.error);
+

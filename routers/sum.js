@@ -1,11 +1,21 @@
 const express = require('express');
 const routers = express.Router();
 const User = require('../models/users');
+const ensureLogged = require('../middlewares/ensure-logged');
+
+
+
+routers.use(ensureLogged);
 
 routers.get('/', function(req, res) {{
+
+  
     res.locals.result = 0;
     res.locals.title = 'Tổng 2 SỐ';
+    // res.locals.currentUser = found;
     res.render('sum');
+
+    
 
 }});
 

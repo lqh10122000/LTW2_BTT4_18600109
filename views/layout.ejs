@@ -18,13 +18,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Trang chủ<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="#">Trang chủ<span class="sr-only"></span></a>
             <a class="nav-item nav-link" href="./sum">tính tổng </a>
-            <a class="nav-item nav-link" href="./auth/login">Đăng Nhập</a>
-            <a class="nav-item nav-link" href="./auth/logout">Đăng Xuất</a>
 
-            <a class="nav-item nav-link disabled" href="#"></a>
-          </div>
+            <% if(currentUser) { %>
+              <a class="nav-item nav-link" href="./auth/logout">Đăng Xuất</a>
+
+            <%} else { %>
+              <a class="nav-item nav-link" href="./auth/login">Đăng Nhập</a>
+              <a class="nav-item nav-link" href="/reg">Đăng Ký</a>
+            <% } %>
+            </div>
         </div>
       </nav>
 
