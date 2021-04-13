@@ -11,12 +11,14 @@ module.exports = function auth(req, res, next)
     if(req.session.currentUser)
     {
         const userId = req.session.currentUser;
+
     
         if(userId){
     
             User.findById(userId.id).then(function(user){
 
                 if(user)
+
                 {   
                     req.currentUser = user;
                     res.locals.currentUser = user;
@@ -37,11 +39,15 @@ module.exports = function auth(req, res, next)
           next(); 
 
         }
+        next(); 
     }
     else
     {
         next(); 
     }
-   
+    else
+    {
+        next(); 
+    }
 
 };
