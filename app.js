@@ -10,9 +10,7 @@ const loginRoter = require('./routers/login');
 const authRouter = require('./routers/auth');
 const sumRouter = require('./routers/sum');
 const RegRouter = require('./routers/register');
-
-
-
+const UserRouter = require('./routers/user');
 
 
 
@@ -34,6 +32,8 @@ app.set('view engine', 'ejs');
 
 app.use(expressLayouts);
 
+app.use(express.static('public'))
+
 app.use('/login', loginRoter);
 
 app.use(expressLayouts);
@@ -42,6 +42,7 @@ app.use('/auth', authRouter);
 
 app.use('/sum', sumRouter);
 
+app.use('/user', UserRouter);
 
 app.use('/reg', RegRouter);
 

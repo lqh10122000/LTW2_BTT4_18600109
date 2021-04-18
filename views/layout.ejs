@@ -18,20 +18,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Trang chủ<span class="sr-only"></span></a>
-            <a class="nav-item nav-link" href="./sum">tính tổng </a>
 
             <% if(currentUser) { %>
+              <a class="nav-item nav-link active" href="#">Profile<span class="sr-only"></span></a>
+
               <a class="nav-item nav-link" href="./auth/logout">Đăng Xuất</a>
 
             <%} else { %>
               <a class="nav-item nav-link" href="./auth/login">Đăng Nhập</a>
-<<<<<<< HEAD
               <a class="nav-item nav-link" href="/reg">Đăng Ký</a>
-=======
-
->>>>>>> 4ce657a1e68cb8694653f8fd531bc188cf15df0b
             <% } %>
+
+            <a class="nav-item nav-link" href="./sum">tính tổng </a>
+
             </div>
         </div>
       </nav>

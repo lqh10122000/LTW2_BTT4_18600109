@@ -6,13 +6,7 @@
         await sequelize.authenticate();
         console.log('connection has been estableished successfully');
     
-        
-        
-
-
-          await sequelize.sync();
-
-      
+          await sequelize.sync();  
     }
     catch (error)
     {

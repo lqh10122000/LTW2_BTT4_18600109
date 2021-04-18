@@ -2,6 +2,9 @@ const { DataTypes } = require('sequelize');
 const db = require('./db');
 
 
+
+
+
 const User = db.define('User', {
     // Model attributes are defined here
     Name: {
@@ -14,8 +17,12 @@ const User = db.define('User', {
       // allowNull defaults to true
     },
     password: {
-        type: DataTypes.STRING,
+        type: DataTypes .STRING,
         allowNull: false
+    },
+    picture: {
+        type: DataTypes.BLOB,
+        allowNull: true
     },
 });
 
